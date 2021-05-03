@@ -1,0 +1,39 @@
+
+body{
+    margin: 0;
+}
+
+
+nav{
+    background-color: rgba(0,0,0,0.6);
+    width: 100vw;
+    background-image: rgba(0,0,0,0.5);
+    position: fixed;
+    display: flex;
+}
+/*.navPic{
+    position: relative;
+}*/
+.dropCont{
+    background-color: rgb(255,255,255);
+    display: block;
+    position: absolute;
+    padding: 0;
+}
+.dropCont a{
+    display: block;
+    height: 100%;
+}
+.drop{
+    margin: 5px 0 5px 30px;
+    display: inline-block;
+    position: relative;
+}
+/*.drop:hover{
+    opacity: 0.6;
+    box-shadow: 6px -4px #000;
+}*/
+nav img:hover{
+    opacity: 0.6;
+    box-shadow: 6px -4px #000;
+}
