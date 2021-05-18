@@ -7,16 +7,100 @@
 </head>
 <body>
     <nav>
-        <div id="dropInfo" class="drop"><a class="navPic"><img src="informasjon.jpg"></a>
-            <div id="dropInfoSkrift" class="dropCont"><a>hei</a></div></div>
+        <div id="dropInfo" class="drop">
+           <a class="navPic" href="#"><img src="informasjon.jpg"></a>
+            <div id="dropInfoSkrift" class="dropCont">
+            <div class="dropContSkrift">
+            <p>Informasjon:<br>Besøksadresse: Lade allé 60, 7041 Trondheim<br>73 87 02 80 post@ringve.no<br>
+Postadresse: Postboks 6289 Torgarden, <br>7489 Trondheim</p>
+    </div>
+     </div>
+      </div>
        
-         <div id="dropPris" class="drop"><a class="navPic"><img src="priser.jpg"></a>
-            <div id="dropPrisSkrift" class="dropCont"></div></div>
+         <div id="dropPris" class="drop">
+           <a class="navPic" href="#"><img src="priser.jpg" height="79px" width="85px"></a>
+            <div id="dropPrisSkrift" class="dropCont">
+            <div class="dropContSkrift">
+            <p>Billetter:<br>Voksen: 120 kr<br>Student/honnør: 100 kr<br>Barn (0-15 år): Gratis</p>
+              </div>
+             </div>
+            </div>
         
-        <div id="dropTid" class="drop"><a class="navPic"><img src="aapningstider.jpg"></a>
-            <div id="dropTidSkrift" class="dropCont"></div></div> 
-        
+        <div id="dropTid" class="drop">
+           <a class="navPic" href="#"><img src="aapningstider.jpg" height="79px" width="85px"></a>
+            <div id="dropTidSkrift" class="dropCont">
+            <div class="dropContSkrift">
+            <p>Åpningstider:<br>
+Tirsdag – søndag 11.00-16.00</p>
+      </div>
+    </div> 
+    </div>
     </nav>
+    
+    
+    
+    
+    <div id="slideshow-container">    
+        <div class="pic">
+            <img src="intro1(f).jpg">
+        </div>
+
+        <div class="pic">
+            <img src="intro2(f).jpg">
+        </div>   
+
+        <div class="pic">
+            <img src="intro3(f).jpg">
+        </div>   
+
+        <div class="pic">
+            <img src="intro4(f).jpg">
+        </div>  
+        <a class="prev" onclick="nextSlides(-1)">&#10094;</a>
+        <a class="next" onclick="nextSlides(1)">&#10095;</a>  
+    
+    
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+        </div> 
+    </div>
         
+        
+    
+    
+    
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function nextSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("pic");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+    
+    </script>
+    
 </body>
 </html>

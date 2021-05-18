@@ -1,39 +1,86 @@
-
 body{
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
-
+img{vertical-align: middle;}
 
 nav{
-    background-color: rgba(0,0,0,0.6);
+    background-color: #666;
     width: 100vw;
     background-image: rgba(0,0,0,0.5);
     position: fixed;
     display: flex;
+    z-index: 2;
 }
-/*.navPic{
-    position: relative;
-}*/
 .dropCont{
-    background-color: rgb(255,255,255);
     display: block;
     position: absolute;
-    padding: 0;
+    display: none;
+    left: 30px;
 }
-.dropCont a{
-    display: block;
-    height: 100%;
+.dropContSkrift{
+    margin-top: 10px;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+    padding: 4px 4px 4px 4px;
+    width: 307px;
+    text-align: center;
+    margin-top: 15px;
 }
 .drop{
-    margin: 5px 0 5px 30px;
+    margin: 5px 0 6px 30px;
     display: inline-block;
-    position: relative;
+    font-size: 0;        
 }
-/*.drop:hover{
+.drop:hover .dropCont{
+    display: block;
+}
+.drop:hover img{
     opacity: 0.6;
-    box-shadow: 6px -4px #000;
-}*/
-nav img:hover{
-    opacity: 0.6;
-    box-shadow: 6px -4px #000;
+    box-shadow: 6px 6px #000;
+}
+#slideshow-container{
+    position: relative;
+    padding: 110px 0 0 0;
+    display: inline-block;
+}
+
+.pic{
+    display: none;
+}
+.next, .prev{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 48px 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.7s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next{
+    right: 0;
+}
+.next:hover, .prev:hover{
+    background-color: rgba(0,0,0,0.7);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active{
+    background-color: #999;
 }
