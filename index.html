@@ -1,103 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-   
-        <head>
-        <link rel="stylesheet" href="Style.css">
-    
-       </head>
-   <meta charset="UTF-8">
-    <title>
-        
-    </title>
-    
-          <h1></h1>
-   
-           
-             
-            
-        
-        
 
-          
- <body>
-      <div id="ramme">
-                
-                     <h3>Arrengementer ved ringvemusikkmuseum våren 2018</h3>
-                   
-                    <p>Pris voksen: 100 kr - Pris barn: 50 kr</p>
-                    
-                    <select id="lstValg">
-                        <option>Velg arrangement</option>
-                    </select>
-                    <p></p>
-                    
-                    Antall billetter: <input id="inpVoksen" type="number" min="0" max="10" value="0"> Voksen 
-                    <input id="inpBarn" type="number" min="0" max="10" value="0"> Barn<p></p>
-                    <button id="btnPris">Vis bestilling</button>
+<head>
+    <meta charset="UTF-8">
+    <title>Ringve museum</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-                    <p id="ut">Velg arrangement/billetter.</p>
-               
+<body>
+    <nav>
+        <i id="burger" class="material-icons" onclick="burger()">menu</i>
+        <i id="quit" class="material-icons" onclick="quit()">clear</i>
+        <div id="links">
+            <a href="">Arangement/Bestilling</a>
+            <a href="">Quiz</a>
         </div>
-           
-        <script>
-            var lstValg = document.getElementById("lstValg");
-            var inpVoksen = document.getElementById("inpVoksen");
-            var inpBarn = document.getElementById("inpBarn");
-            var btnPris = document.getElementById("btnPris");
-            
-            var arrangement = ["Trondheim kammermusikkfestival - 1. juni", " Spill opp! - 4. juni", "Onsdagskonsert - 6. juni", "Juiogat: Joik for folk - 9. juni"];
-            for (var i=0; i<arrangement.length; i++){
-                lstValg.innerHTML += "<option>" + arrangement[i] + "</option>";
-            }
+        <div id="dropInfo" class="drop">
+            <a class="navPic" href="#"><img src="informasjon(r)"></a>
+            <div id="dropInfoSkrift" class="dropCont">
+                <div class="dropContSkrift">
+                    <p>Informasjon:<br>Besøksadresse: Lade allé 60, 7041 Trondheim<br>73 87 02 80 post@ringve.no<br> Postadresse: Postboks 6289 Torgarden, <br>7489 Trondheim</p>
+                </div>
+            </div>
+        </div>
 
-            
-            btnPris.onclick = function(){
-                var indeks = lstValg.selectedIndex;
-                var antVoksen = Number(inpVoksen.value);
-                var antBarn = Number(inpBarn.value);
-                
-                var prosent = 0;
-                var melding = ".";
-                var antBilletter = antVoksen + antBarn;
-                var sumPris = antVoksen*100 + antBarn*50;
-                
-                
-                if(antVoksen > 0 || antBarn > 0){
-                    ut.innerHTML = "Du har bestillt " + antBilletter + " billetter til " + arrangement[indeks-1] + ".<br>";
-                    if (antVoksen > 0 && antBarn > 0){
-                        ut.innerHTML += antVoksen + " voksne og " + antBarn + " barn.<br>";
-                    }
-                    if (antBilletter >=5 ){
-                        sumPris = sumPris * 0.8;
-                        melding = ", inklusiv grupperabatt på 20 prosent. <br>";
-                    }
-                    ut.innerHTML += "Total kr " + sumPris + melding;
-                }
-                                    
-                else{
-                    ut.innerHTML = "Velg arrangement/billetter.";
-                }
-                
-                
-               
+        <div id="dropPris" class="drop">
+            <a class="navPic" href="#"><img src="priser(r)" height="79px" width="85px"></a>
+            <div id="dropPrisSkrift" class="dropCont">
+                <div class="dropContSkrift">
+                    <p>Billetter:<br>Voksen: 120 kr<br>Student/honnør: 100 kr<br>Barn (0-15 år): Gratis</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="dropTid" class="drop">
+            <a class="navPic" href="#"><img src="aapningstider(r)" height="79px" width="85px"></a>
+            <div id="dropTidSkrift" class="dropCont">
+                <div class="dropContSkrift">
+                    <p>Åpningstider:<br> Tirsdag – søndag 11.00-16.00</p>
+                </div>
+            </div>
+        </div>
+
+        <h1>Ringve musikkmuseum</h1>
+
+    </nav>
+
+
+
+
+    <div id="slideshow-container">
+        <div class="pic">
+            <img src="intro1(f).jpg">
+        </div>
+
+        <div class="pic">
+            <img src="intro2(f).jpg">
+        </div>
+
+        <div class="pic">
+            <img src="intro3(f).jpg">
+        </div>
+
+        <div class="pic">
+            <img src="intro4(f).jpg">
+        </div>
+        <a class="prev" onclick="nextSlides(-1)">&#10094;</a>
+        <a class="next" onclick="nextSlides(1)">&#10095;</a>
+
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function nextSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("pic");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
             }
-           
-            
-        </script>
-    
-     
- </body>
-   
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function burger() {
+            var burger = document.getElementById('burger');
+            var links = document.getElementById('links');
+            var quit = document.getElementById('quit');
+            burger.style.padding = '16px 16px 200vw 200vw';
+            links.style.display = 'flex';
+            quit.style.display = 'inline';
+        }
+
+        function quit() {
+            var burger = document.getElementById('burger');
+            var links = document.getElementById('links');
+            var quit = document.getElementById('quit');
+            burger.style.padding = '16px 16px 32px 32px';
+            links.style.display = 'none';
+            quit.style.display = 'none';
+        }
+    </script>
+
+</body>
+
 </html>
-
-
-
-    
-    
-
-
-
-
-
-
-      
