@@ -1,25 +1,30 @@
-body{
+body {
     margin: 0;
     display: flex;
     justify-content: center;
 }
-img{vertical-align: middle;}
 
-nav{
+img {
+    vertical-align: middle;
+}
+
+nav {
     background-color: #666;
     width: 100vw;
-    background-image: rgba(0,0,0,0.5);
+    background-image: rgba(0, 0, 0, 0.5);
     position: fixed;
     display: flex;
     z-index: 2;
 }
-.dropCont{
+
+.dropCont {
     display: block;
     position: absolute;
     display: none;
     left: 30px;
 }
-.dropContSkrift{
+
+.dropContSkrift {
     margin-top: 10px;
     background-color: #444;
     color: #fff;
@@ -29,28 +34,35 @@ nav{
     text-align: center;
     margin-top: 15px;
 }
-.drop{
+
+.drop {
     margin: 5px 0 6px 30px;
     display: inline-block;
-    font-size: 0;        
+    font-size: 0;
+    width: 85px;
 }
-.drop:hover .dropCont{
+
+.drop:hover .dropCont {
     display: block;
 }
-.drop:hover img{
+
+.drop:hover img {
     opacity: 0.6;
-    box-shadow: 6px 6px #000;
+    filter: drop-shadow(3px 3px #000);
 }
-#slideshow-container{
+
+#slideshow-container {
     position: relative;
     padding: 110px 0 0 0;
     display: inline-block;
 }
 
-.pic{
+.pic {
     display: none;
 }
-.next, .prev{
+
+.next,
+.prev {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -63,24 +75,104 @@ nav{
     transition: 0.7s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.next{
+
+.next {
     right: 0;
 }
-.next:hover, .prev:hover{
-    background-color: rgba(0,0,0,0.7);
+
+.next:hover,
+.prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
-.active{
+
+.active {
     background-color: #999;
+}
+
+h1 {
+    position: absolute;
+    color: #F7F0EA;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    line-height: 90px;
+    margin: 0;
+}
+
+-------------------- burgermeny -------------- @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+#burger {
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: #000;
+    background: linear-gradient(260deg, #F7F0EA 10%, #F7F0EA);
+    ;
+    font-size: 32px;
+    padding: 16px 16px 32px 32px;
+    border-radius: 0% 0% 0% 80%;
+    transition: 2s;
+    cursor: pointer;
+}
+
+#quit {
+    position: fixed;
+    top: 0;
+    color: #000;
+    font-size: 32px;
+    padding: 16px;
+    display: none;
+    cursor: pointer;
+}
+
+#links {
+    display: none;
+    flex-direction: column;
+    width: 100vw;
+    height: 50vh;
+    padding: 25vh 0;
+    justify-content: space-around;
+}
+
+#links a {
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 2em;
+    font-family: 'Roboto';
+    z-index: 10;
 }
