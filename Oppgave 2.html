@@ -10,7 +10,7 @@
         
     </title>
     
-          <h1></h1>
+          <h1>Arrengementer ved Ringvemusikkmuseum våren 2018</h1>
    
            
              
@@ -20,62 +20,63 @@
 
           
  <body>
-      <div id="ramme">
+    <div id="ramme">
                 
-                     <h3>Arrengementer ved ringvemusikkmuseum våren 2018</h3>
+                     
                    
-                    <p>Pris voksen: 100 kr - Pris barn: 50 kr</p>
+                    <p>Pris voksen: 100 kr </p>
+                    <p>Pris barn: 50 kr</p>
                     
-                    <select id="lstValg">
-                        <option>Velg arrangement</option>
+                    <select id="Valg">
+                        <option>Vennligst velg et arrangement</option>
                     </select>
                     <p></p>
                     
-                    Antall billetter: <input id="inpVoksen" type="number" min="0" max="10" value="0"> Voksen 
-                    <input id="inpBarn" type="number" min="0" max="10" value="0"> Barn<p></p>
-                    <button id="btnPris">Vis bestilling</button>
+                    Antall billetter: <input id="Voksen" type="number" min="0" max="10" value="0"> Voksen 
+                    <input id="Barn" type="number" min="0" max="10" value="0"> Barn<p></p>
+                    <button id="Pris">Bestill</button>
 
-                    <p id="ut">Velg arrangement/billetter.</p>
+                                   <p2 id="cap"></p2> 
                
         </div>
            
         <script>
-            var lstValg = document.getElementById("lstValg");
-            var inpVoksen = document.getElementById("inpVoksen");
-            var inpBarn = document.getElementById("inpBarn");
-            var btnPris = document.getElementById("btnPris");
+            var Valg = document.getElementById("Valg");
+            var Voksen = document.getElementById("Voksen");
+            var Barn = document.getElementById("Barn");
+            var Pris = document.getElementById("Pris");
             
-            var arrangement = ["Trondheim kammermusikkfestival - 1. juni", " Spill opp! - 4. juni", "Onsdagskonsert - 6. juni", "Juiogat: Joik for folk - 9. juni"];
-            for (var i=0; i<arrangement.length; i++){
-                lstValg.innerHTML += "<option>" + arrangement[i] + "</option>";
+            var arrangementer = ["Trondheim kammermusikkfestival - 1. juni", " Spill opp! - 4. juni", "Onsdagskonsert - 6. juni", "Juiogat: Joik for folk - 9. juni"];
+            for (var i=0; i<arrangementer.length; i++){
+                Valg.innerHTML += "<option>" + arrangementer[i] + "</option>";
             }
 
             
-            btnPris.onclick = function(){
-                var indeks = lstValg.selectedIndex;
-                var antVoksen = Number(inpVoksen.value);
-                var antBarn = Number(inpBarn.value);
+            Pris.onclick = function(){
+                var indeks = Valg.selectedIndex;
+                var antallVoksen = Number(Voksen.value);
+                var antallBarn = Number(Barn.value);
                 
                 var prosent = 0;
-                var melding = ".";
-                var antBilletter = antVoksen + antBarn;
-                var sumPris = antVoksen*100 + antBarn*50;
+                var beskjed = ".";
+                var antallBilletter = antallVoksen + antallBarn;
+                var sumPris = antallVoksen*100 + antallBarn*50;
                 
                 
-                if(antVoksen > 0 || antBarn > 0){
-                    ut.innerHTML = "Du har bestillt " + antBilletter + " billetter til " + arrangement[indeks-1] + ".<br>";
-                    if (antVoksen > 0 && antBarn > 0){
-                        ut.innerHTML += antVoksen + " voksne og " + antBarn + " barn.<br>";
+                if(antallVoksen > 0 || antallBarn > 0){
+                    cap.innerHTML = "Du har bestillt " + antallBilletter + " billetter til " + arrangementer[indeks-1] + ".<br>";
+                    if (antallVoksen > 0 && antallBarn > 0){
+                        cap.innerHTML += antallVoksen + " voksne og " + antallBarn + " barn.<br>";
                     }
-                    if (antBilletter >=5 ){
+                    if (antallBilletter >=5 ){
                         sumPris = sumPris * 0.8;
-                        melding = ", inklusiv grupperabatt på 20 prosent. <br>";
+                        beskjed = ", med en grupperabatt på 20 prosent. <br>";
                     }
-                    ut.innerHTML += "Total kr " + sumPris + melding;
+                    cap.innerHTML += "Total kr " + sumPris + beskjed;
                 }
                                     
                 else{
-                    ut.innerHTML = "Velg arrangement/billetter.";
+                    cap.innerHTML = "Velg et arrengement.";
                 }
                 
                 
@@ -84,9 +85,9 @@
            
             
         </script>
-    
-     
- </body>
+    </body>
+            
+      
    
 </html>
 
